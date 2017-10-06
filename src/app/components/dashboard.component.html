@@ -1,0 +1,38 @@
+<topHeader></topHeader>
+<div class="row" style="background-color:#f5fbfb;padding-top:2%;padding-bottom:1%">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-2">
+    <img src="../app/images/person.png" style="height:50px;width:50px;float:left">
+    <div style="font-family:AvenirMedium;font-size:1.75rem">Total Sponsors</div>
+    <div style="font-family:AvenirMedium;font-size:1.75rem">{{number}}</div>
+  </div>
+  <div class="col-md-2">
+    <img src="../app/images/money.png" style="height:50px;width:50px;float:left">
+    <div style="font-family:AvenirMedium;font-size:1.75rem">Total Sponsorship</div>
+    <div style="font-family:AvenirMedium;font-size:1.75rem">${{total}}</div>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
+<div class="dashboardDiv">
+  <table class="table table-bordered" id="sponsorsTable">
+    <thead>
+      <th>Name</th>
+      <th>Registration Number</th>
+      <th>Registration Date</th>
+      <th>Email</th>
+      <th>Company Name</th>
+    </thead>
+    <tbody>
+      <tr class="rows" *ngFor="let sponsor of sponsors.registeredUsers">
+        <td>{{sponsor.name}}</td>
+        <td>{{sponsor.registrationNumber}}</td>
+        <td>{{sponsor.registrationDate}}</td>
+        <td>{{sponsor.email}}</td>
+        <td>{{sponsor.company}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<bottomfooter></bottomfooter>

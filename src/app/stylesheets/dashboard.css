@@ -1,0 +1,23 @@
+.dashboardDiv{
+  background-color:#f5fbfb;
+  max-height:72vh;
+  font-family: AvenirMedium;
+  padding: 20px 20px 20px 20px;
+}
+#sponsorsTable > thead{
+  font-family:AvenirMedium;
+  font-size:1.75rem;
+  border:1px solid black;
+}
+#sponsorsTable > thead >th{
+  border-right: 1px solid black;
+  padding:3px 0px 3px 5px;
+}
+.rows{
+  font-family: AvenirRegular;
+  font-size:1.5rem;
+  border: 1px solid black;
+}
+#sponsorsTable > tbody > tr > td{
+  border:1px solid !important;
+}
