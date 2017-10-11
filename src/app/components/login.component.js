@@ -28,6 +28,7 @@ var LoginComponent = (function () {
                 username: this.user,
                 password: this.pwd
             };
+            sessionStorage.setItem("Credentials", JSON.stringify(this.credentials));
             this.ValidateAdmin.validateAdmin(this.credentials).subscribe(function (returned) {
                 _this.response = returned;
                 sessionStorage.setItem('Sponsors', JSON.stringify(_this.response));

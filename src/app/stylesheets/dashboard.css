@@ -8,11 +8,12 @@
 #sponsorsTable > thead{
   font-family:AvenirMedium;
   font-size:1.75rem;
-  border:1px solid black;
+  /*border:1px solid black;*/
 }
 #sponsorsTable > thead >th{
-  border-right: 1px solid black;
+  /*border-right: 1px solid black;*/
   padding:3px 0px 3px 5px;
+  width:250px !important;
 }
 .rows{
   font-family: AvenirRegular;
@@ -21,4 +22,17 @@
 }
 #sponsorsTable > tbody > tr > td{
   border:1px solid !important;
+}
+.panel-heading{
+  padding:10px 20px !important;
+}
+.table{
+  margin-bottom: 1% !important;
+  margin-left: 1% !important;
+}
+#accordianTable{
+  width:100%;
+}
+#accordianTable > tbody > tr > td{
+  width:250px !important
 }

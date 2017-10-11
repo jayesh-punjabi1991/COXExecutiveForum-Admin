@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var validateCredentials_service_1 = require("../services/validateCredentials.service");
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(ValidateAdmin) {
+        this.ValidateAdmin = ValidateAdmin;
         this.sponsors = JSON.parse(sessionStorage.getItem("Sponsors"));
         this.number = this.sponsors.registeredUsers.length;
         this.total = this.number * 60000;
@@ -18,9 +20,21 @@ var DashboardComponent = (function () {
             this.temp = new Date(this.sponsors.registeredUsers[this.i].registrationDate);
             this.sponsors.registeredUsers[this.i].registrationDate = this.temp.getMonth() + 1 + '/' + this.temp.getDate() + '/' + this.temp.getFullYear();
         }
-        console.log(this.sponsors.registeredUsers);
+        //console.log(this.sponsors.registeredUsers);
     }
     DashboardComponent.prototype.refresh = function () {
+        var _this = this;
+        this.credentials = JSON.parse(sessionStorage.getItem("Credentials"));
+        this.ValidateAdmin.validateAdmin(this.credentials).subscribe(function (returned) {
+            sessionStorage.setItem('Sponsors', JSON.stringify(returned));
+            _this.sponsors = JSON.parse(sessionStorage.getItem("Sponsors"));
+            _this.number = _this.sponsors.registeredUsers.length;
+            _this.total = _this.number * 60000;
+            for (_this.i = 0; _this.i < _this.sponsors.registeredUsers.length; _this.i++) {
+                _this.temp = new Date(_this.sponsors.registeredUsers[_this.i].registrationDate);
+                _this.sponsors.registeredUsers[_this.i].registrationDate = _this.temp.getMonth() + 1 + '/' + _this.temp.getDate() + '/' + _this.temp.getFullYear();
+            }
+        });
     };
     return DashboardComponent;
 }());
@@ -29,9 +43,10 @@ DashboardComponent = __decorate([
         moduleId: module.id,
         selector: 'dashboard',
         templateUrl: "dashboard.component.html",
-        styleUrls: ['../stylesheets/dashboard.css']
+        styleUrls: ['../stylesheets/dashboard.css'],
+        providers: [validateCredentials_service_1.ValidateAdmin]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [validateCredentials_service_1.ValidateAdmin])
 ], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;
 //# sourceMappingURL=dashboard.component.js.map

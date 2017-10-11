@@ -32,6 +32,7 @@ export class LoginComponent  {
         username:this.user,
         password:this.pwd
       }
+      sessionStorage.setItem("Credentials",JSON.stringify(this.credentials));
       this.ValidateAdmin.validateAdmin(this.credentials).subscribe(returned=>{
         this.response=returned;
         sessionStorage.setItem('Sponsors',JSON.stringify(this.response));
