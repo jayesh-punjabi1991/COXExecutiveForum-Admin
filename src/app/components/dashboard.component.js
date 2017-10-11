@@ -13,14 +13,20 @@ var validateCredentials_service_1 = require("../services/validateCredentials.ser
 var DashboardComponent = (function () {
     function DashboardComponent(ValidateAdmin) {
         this.ValidateAdmin = ValidateAdmin;
+        this.showTable = true;
+        this.showMessage = false;
         this.sponsors = JSON.parse(sessionStorage.getItem("Sponsors"));
         this.number = this.sponsors.registeredUsers.length;
+        if (this.number == 0) {
+            this.showTable = false;
+            this.showMessage = true;
+        }
         this.total = this.number * 60000;
         for (this.i = 0; this.i < this.sponsors.registeredUsers.length; this.i++) {
             this.temp = new Date(this.sponsors.registeredUsers[this.i].registrationDate);
             this.sponsors.registeredUsers[this.i].registrationDate = this.temp.getMonth() + 1 + '/' + this.temp.getDate() + '/' + this.temp.getFullYear();
         }
-        //console.log(this.sponsors.registeredUsers);
+        console.log(this.sponsors.registeredUsers);
     }
     DashboardComponent.prototype.refresh = function () {
         var _this = this;
@@ -29,6 +35,14 @@ var DashboardComponent = (function () {
             sessionStorage.setItem('Sponsors', JSON.stringify(returned));
             _this.sponsors = JSON.parse(sessionStorage.getItem("Sponsors"));
             _this.number = _this.sponsors.registeredUsers.length;
+            if (_this.number == 0) {
+                _this.showTable = false;
+                _this.showMessage = true;
+            }
+            else {
+                _this.showTable = true;
+                _this.showMessage = false;
+            }
             _this.total = _this.number * 60000;
             for (_this.i = 0; _this.i < _this.sponsors.registeredUsers.length; _this.i++) {
                 _this.temp = new Date(_this.sponsors.registeredUsers[_this.i].registrationDate);

@@ -21,7 +21,9 @@ var LoginComponent = (function () {
     LoginComponent.prototype.validate = function () {
         var _this = this;
         if (!this.user || !this.pwd) {
-            alert("Please enter the credentials.");
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
         }
         else {
             this.credentials = {
@@ -34,11 +36,14 @@ var LoginComponent = (function () {
                 sessionStorage.setItem('Sponsors', JSON.stringify(_this.response));
                 if (_this.response.registeredUsers) {
                     _this.success = true;
-                    window.location.href = 'http://localhost:8000/forumadmin/dashboard';
+                    window.location.href = '../forumadmin/dashboard';
                 }
                 else {
                     _this.success = false;
-                    alert("Login Failed,Please enter the correct credentials.");
+                    document.getElementById('snackbar').innerHTML = "Incorrect Credentials";
+                    var x = document.getElementById("snackbar");
+                    x.className = "show";
+                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
                 }
             });
         }

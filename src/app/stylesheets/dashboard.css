@@ -1,4 +1,4 @@
-.dashboardDiv{
+.dashboardDiv,.messageDiv{
   background-color:#f5fbfb;
   min-height:72vh;
   max-height:72vh;
