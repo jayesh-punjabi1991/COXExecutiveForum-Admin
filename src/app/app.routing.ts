@@ -23,4 +23,4 @@ const appRoute : Routes = [
   { path: '**', redirectTo: 'forumadmin/login' }
 ]
 
-export const Routing : ModuleWithProviders = RouterModule.forRoot(appRoute);
+export const Routing : ModuleWithProviders = RouterModule.forRoot(appRoute,{useHash: true});

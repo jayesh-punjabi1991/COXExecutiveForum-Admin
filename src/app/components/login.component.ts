@@ -7,7 +7,7 @@ import { ValidateAdmin } from '../services/validateCredentials.service';
 @Component({
   moduleId:module.id,
   selector: 'login',
-  templateUrl: `login.component.html`,
+  templateUrl: `./login.component.html`,
   styleUrls:['../stylesheets/login.css'],
   providers:[ValidateAdmin]
 })
@@ -40,7 +40,7 @@ export class LoginComponent  {
         sessionStorage.setItem('Sponsors',JSON.stringify(this.response));
         if(this.response.registeredUsers){
           this.success=true;
-          window.location.href = '../forumadmin/dashboard';
+          window.location.href = '../#/forumadmin/dashboard';
         }
         else{
           this.success=false;
