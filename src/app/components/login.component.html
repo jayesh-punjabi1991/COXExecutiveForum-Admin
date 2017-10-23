@@ -4,20 +4,33 @@
   <div class="card">
     <h1 class="title">Admin</h1>
     <form id="loginForm">
-      <div class="input-container">
-        <input type="text" name="user" [(ngModel)]="user" required/>
+      <div class="input-container" *ngIf="!Spinner">
+        <input type="text" name="user" [(ngModel)]="user" required autocomplete="off"/>
         <label>Username</label>
         <div class="bar"></div>
       </div>
-      <div class="input-container">
-        <input type="password" name="pwd" [(ngModel)]="pwd" required/>
+      <div class="input-container" *ngIf="!Spinner">
+        <input type="password" name="pwd" [(ngModel)]="pwd" required autocomplete="off"/>
         <label>Password</label>
         <div class="bar"></div>
+      </div>
+      <div class="sk-cube-grid" *ngIf="Spinner">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
       </div>
       <div class="button-container">
         <button (click)="validate()"><span>Login</span></button>
       </div>
+
     </form>
+
   </div>
   </div>
 </div>

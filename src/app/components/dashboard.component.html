@@ -17,16 +17,32 @@
   </div>
 </div>
 <div class="dashboardDiv" *ngIf="showTable">
-  <table class="table " id="sponsorsTable">
+  <div class="sk-cube-grid" *ngIf="Spinner">
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+  </div>
+  <table class="table " id="sponsorsTable" *ngIf="!Spinner">
     <thead>
-      <th>Name</th>
-      <th>Registration Number</th>
-      <th>Registration Date</th>
-      <th>Email</th>
-      <th>Company Name</th>
+      <th style="width:100px !important">Registration Number</th>
+      <th style="width:100px !important">Registration Date</th>
+      <th>Details</th>
     </thead>
+    <tbody style="padding-top:2%">
+      <tr *ngFor="let sponsor of sponsors.registeredUsers">
+        <td>{{sponsor.registrationNumber}}</td>
+        <td>{{sponsor.registrationDate}}</td>
+        <td><strong>Title:</strong>{{sponsor.userDetails.title}}<strong>&nbsp;,&nbsp;Phone Number:</strong>{{sponsor.userDetails.phoneNumber}}<strong>&nbsp;,&nbsp;Cox Contact:</strong>{{sponsor.userDetails.coxContact}}<strong>&nbsp;,&nbsp;Number of Attendees:</strong>{{sponsor.userDetails.noOfAttendees}}<strong>&nbsp;,&nbsp;Invoice Contact:</strong>{{sponsor.userDetails.invoiceContact}}<strong>&nbsp;,&nbsp;Invoice Contact Email:</strong>{{sponsor.userDetails.invoiceContactEmail}}<strong>&nbsp;,&nbsp;Invoice Contact Phone:</strong>{{sponsor.userDetails.invoiceContactPhone}}<strong>&nbsp;,&nbsp;Signage Contact:</strong>{{sponsor.userDetails.signageContact}}<strong>&nbsp;,&nbsp;Signage Contact Email:</strong>{{sponsor.userDetails.signageContactEmail}}<strong>&nbsp;,&nbsp;Invoice Contact Phone:</strong>{{sponsor.userDetails.invoiceContactPhone}}<strong>&nbsp;,&nbsp;Company Address:</strong>{{sponsor.userDetails.address.companyAddress}}<strong>&nbsp;,&nbsp;City&nbsp;,&nbsp;State and Zip:</strong>{{sponsor.userDetails.address.cityStateZip}}</td>
+      </tr>
+    </tbody>
   </table>
-  <div class="panel-group" id="accordion">
+  <!-- <div class="panel-group" id="accordion">
     <div class="panel panel-default" *ngFor="let sponsor of sponsors.registeredUsers">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -90,9 +106,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
-<div class="messageDiv" *ngIf="showMessage">
+<div class="messageDiv" *ngIf="showMessage && !Spinner">
   <span>No Records Found</span>
 </div>
 <bottomfooter></bottomfooter>

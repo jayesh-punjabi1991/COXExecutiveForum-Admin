@@ -3,6 +3,9 @@
   height:72vh;
   font-family: AvenirMedium;
 }
+.sk-cube-grid{
+  z-index:999;
+}
 /* Pen Title */
 .pen-title {
   padding: 50px 0;

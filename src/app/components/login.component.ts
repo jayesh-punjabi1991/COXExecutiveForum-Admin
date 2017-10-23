@@ -17,6 +17,7 @@ export class LoginComponent  {
   credentials:credentials;
   response:any;
   success:boolean;
+  Spinner:boolean
 
   constructor(public ValidateAdmin : ValidateAdmin,private router:Router){
     this.user=null;
@@ -30,6 +31,7 @@ export class LoginComponent  {
       setTimeout(function() { x.className = x.className.replace("show", ""); }, 3000);
     }
     else{
+      this.Spinner=true;
       this.credentials={
         username:this.user,
         password:this.pwd
@@ -44,6 +46,7 @@ export class LoginComponent  {
         }
         else{
           this.success=false;
+          this.Spinner=false;
           document.getElementById('snackbar').innerHTML = "Incorrect Credentials";
           var x = document.getElementById("snackbar")
           x.className = "show";

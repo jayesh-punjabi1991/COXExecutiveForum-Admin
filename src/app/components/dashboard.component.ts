@@ -19,6 +19,7 @@ export class DashboardComponent  {
   credentials:any;
   showTable:boolean;
   showMessage:boolean;
+  Spinner:boolean;
   constructor(public ValidateAdmin : ValidateAdmin){
     this.showTable=true;
     this.showMessage=false;
@@ -36,6 +37,7 @@ export class DashboardComponent  {
     console.log(this.sponsors.registeredUsers);
   }
   refresh(){
+      this.Spinner=true;
       this.credentials= JSON.parse(sessionStorage.getItem("Credentials"));
       this.ValidateAdmin.validateAdmin(this.credentials).subscribe(returned=>{
       sessionStorage.setItem('Sponsors',JSON.stringify(returned));
@@ -54,7 +56,7 @@ export class DashboardComponent  {
         this.temp=new Date(this.sponsors.registeredUsers[this.i].registrationDate);
         this.sponsors.registeredUsers[this.i].registrationDate=this.temp.getMonth() + 1 + '/' + this.temp.getDate() + '/' +  this.temp.getFullYear();
       }
+      this.Spinner=false;
     });
-
   }
 }
