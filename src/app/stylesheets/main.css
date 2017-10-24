@@ -100,3 +100,8 @@ button{
             transform: scale3D(0, 0, 1);
   }
 }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  button{
+    font-family:Arial !important;
+  }
+}

@@ -35,3 +35,8 @@
 #accordianTable > tbody > tr > td{
   width:250px !important
 }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+#sponsorsTable > thead,.rows,.dashboardDiv,.messageDiv{
+  font-family: Arial !important;
+}
+}

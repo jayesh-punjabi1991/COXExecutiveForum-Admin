@@ -485,3 +485,8 @@ button{
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+.loginBody{
+  font-family: Arial !important;
+}
+}

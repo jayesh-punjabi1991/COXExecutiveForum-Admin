@@ -51,3 +51,8 @@
   font-size:1.75rem;
   line-height:0.75;
 }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #firstLine,#secondLine1,#secondLine2,#thirdLine{
+    font-family:Arial !important;
+  }
+}
